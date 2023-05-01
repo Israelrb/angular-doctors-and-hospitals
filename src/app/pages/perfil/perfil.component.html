@@ -1,0 +1,70 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <h3 class="box-title m-b-0">Mi perfil</h3>
+            <p class="text-muted m-b-30 font-13"> Ajustes </p>
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <form [formGroup]="perfilForm" (submit)="actualizarPerfil()">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">User Name</label>
+                            <input type="text" 
+                                     class="form-control" 
+                                    id="exampleInputEmail1" ç
+                                    placeholder="Nombre del usuario"
+                                    formControlName="nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Last Name</label>
+                            <input type="text" 
+                                     class="form-control" 
+                                    id="exampleInputEmail1" ç
+                                    placeholder="Nombre del usuario"
+                                    formControlName="apellidos">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" 
+                                    class="form-control" 
+                                    id="exampleInputEmail1" 
+                                    placeholder="Enter email"
+                                    formControlName="email"
+                                    [readOnly]="usuario.google">
+                        </div>
+        
+                        <button type="submit" 
+                                class="btn btn-success btn-block waves-effect waves-light m-r-10"
+                                [disabled]="perfilForm.invalid">
+                            <i class="fa fa-save"></i>
+                            Guardar cambios
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card card-body">
+            <h3 class="box-title m-b-0">Avatar</h3>
+            <p class="text-muted m-b-30 font-13"> Imagen del usuario </p>
+
+            <div class="text-center">
+                <img *ngIf="!imgTemp" [src]="usuario.imagenUrl" class="img-avatar" alt="">
+                <img *ngIf="imgTemp" [src]="imgTemp" class="img-avatar" alt="">
+            </div>
+            
+            <input type="file" (change)="cambiarImagen($event)">
+
+            <br><br>
+
+            <button type="button" 
+                    class="btn btn-success waves-effect waves-light m-r-10"
+                    [disabled]="!imagenSubir"
+                    (click)="subirImagen()">
+                <i class="fa fa-save"></i>
+                Cambiar imagen
+            </button>
+        </div>
+    </div>
+</div>
