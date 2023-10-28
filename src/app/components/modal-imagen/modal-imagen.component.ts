@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
   selector: 'app-modal-imagen',
   templateUrl: './modal-imagen.component.html'
 })
-export class ModalImagenComponent implements OnInit{
+export class ModalImagenComponent {
   public imagenSubir: File | undefined;
   public imgTemp: any = '';
 
@@ -16,10 +16,6 @@ export class ModalImagenComponent implements OnInit{
     private fileUploadService: FileUploadService
   ) {
 
-  }
-  
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   cerradorModal() {
